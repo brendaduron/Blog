@@ -1,0 +1,4 @@
+#config.ru
+
+requiere './app'
+run Sinatra::Application
