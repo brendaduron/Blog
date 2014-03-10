@@ -23,6 +23,12 @@ helpers do
   end
 end
 
+get "/posts/:id" do
+ @post = Post.find(params[:id])
+ @title = @post.title
+ erb :"posts/view"
+end
+
 get "/posts/create" do
  @title = "Create post"
  @post = Post.new
@@ -37,11 +43,4 @@ post "/posts" do
    erb :"posts/create"
  end
 end
-
-get "/posts/:id" do
- @post = Post.find(params[:id])
- @title = @post.title
- erb :"posts/view"
-end
-
 
