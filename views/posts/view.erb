@@ -1,5 +1,11 @@
 <h1><%=h @post.title %></h1>
 <p><%=h @post.body %></p>
 <br>
-<a href="/posts/<%= @post.id %>/edit">Editar Post</a>
+<ul>
+ <li>
+  <a href="/posts/<%= @post.id %>/edit">Editar Post</a>
+ <li>
+  <a href="/posts/<%= @post.id %>/delete">Borrar Post</a>
+  
+</ul>
 

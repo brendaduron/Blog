@@ -22,12 +22,17 @@ helpers do
       "Welcome."
     end
   end
+
+ # def delete_post_button(post_id)
+ #   erb :_delete_post_button, locals: { post_id: post_id}
+ # end
 end
 
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
 end
+
 # get ALL posts
 get "/" do
   @posts = Post.order("created_at DESC")
@@ -69,3 +74,11 @@ put "/posts/:id" do
   redirect "/posts/#{@post.id}"
 end
 
+#delete posts
+get "/posts/:id/delete" do
+  @post = Post.find(params[:id])
+  @post.destroy
+  redirect "/"
+end
+
+  
