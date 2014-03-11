@@ -6,4 +6,7 @@ before_install:
   - gem update
   - gem install selenium-webdriver
   - gem install test-unit
+  - gem install sinatra
+  - gem install activerecord
+  - gem install sinatra-activerecord
 
