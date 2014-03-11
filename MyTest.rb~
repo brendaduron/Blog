@@ -36,7 +36,7 @@ class MyTest < Test::Unit::TestCase
   end
 
   def test_consultar
-    get "/posts/" :id => 2
+    get "/posts/", :id => 2
     assert last_response.ok?
   end
 end 

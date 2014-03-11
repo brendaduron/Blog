@@ -10,8 +10,14 @@ enable :sessions
 
 
 class Post < ActiveRecord::Base
+  has_many :comments
+
   validates :title, presence: true, length: { minimum: 5 }
   validates :body, presence: true
+end
+
+class Comments < ActiveRecord::Base
+  belongs_to :post
 end
 
 helpers do
@@ -22,10 +28,6 @@ helpers do
       "Welcome."
     end
   end
-
- # def delete_post_button(post_id)
- #   erb :_delete_post_button, locals: { post_id: post_id}
- # end
 end
 
 helpers do
@@ -59,6 +61,7 @@ end
 get "/posts/:id" do
   @post = Post.find(params[:id])
   @title = @post.title
+  @comments = Comments.where("post_id = #{@post.id}")	
   erb :"posts/view"
 end
 
@@ -69,7 +72,7 @@ get "/posts/:id/edit" do
   erb :"posts/edit"
 end
 put "/posts/:id" do
-  @post = Post.find(params[:id])
+  @post = Post.find(params[:id]) 
   @post.update(params[:post])
   redirect "/posts/#{@post.id}"
 end
@@ -81,4 +84,21 @@ get "/posts/:id/delete" do
   redirect "/"
 end
 
-  
+#search posts
+get "/search" do
+  # @posts = Post.find_by_title(params[:query])
+  @posts = Post.where("title like '%#{params[:query]}%'")
+  erb :"/posts/index"
+end
+
+#new comment
+post "/posts/:id/comment" do
+  @post = Post.find(params[:id]) 
+  @comment = Comments.new(params[:post])
+  if @comment.save
+    @comments = Comments.where("post_id = #{@post.id}")	
+    redirect "posts/#{@post.id}", :notice => 'post_id = #{@post.id} Gracias por el comentario. (This message will disapear in 4 seconds.)'
+  else
+    redirect "posts/#{@post.id}", :error => 'Something went wrong. Try again. (This message will disapear in 4 seconds.)'
+  end
+end

@@ -1,8 +1,20 @@
+<form action="/search" method="get">
+<table border=0><tr><td style="valign:top">
+     &nbsp;&nbsp;<input type="text" class="form-control" name="query" style="width:300px">
+     <td style="valign:top"><button type="submit" class="btn btn-success">Buscar</button>	</tr></table>
+   </form>
+
 <ul>
-<% @posts.each do |post| %>
+<%
+if @posts.nil?
+%>
+  <h4>No se encontraron registros</h4>
+<%
+else 
+@posts.each do |post| %>
   <li>
-    <h4><a href="/posts/<%= post.id %>"><%= post.title %></a></h4>
-    <p>Created: <%= post.created_at %></p>
+    <h4><a href="/posts/<%= post.id %>"><%=h post.title %></a></h4>
+    <p>Created: <%=h post.created_at %></p>
   </li>
 <% end %>
 </ul>
