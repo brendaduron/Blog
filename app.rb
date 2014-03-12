@@ -105,3 +105,12 @@ post '/posts/:id/comment' do
     redirect "posts/#{@post.id}", error: 'Something went wrong. Try again.'
   end
 end
+
+# delete comments
+get '/comments/:id/borrar' do
+  @comment = Comments.find(params[:id])
+  idpadre = @comment.post_id
+  @comment.destroy
+  redirect "posts/#{idpadre}"
+
+end
