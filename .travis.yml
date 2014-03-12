@@ -9,4 +9,5 @@ before_install:
   - gem install sinatra
   - gem install activerecord
   - gem install sinatra-activerecord
+  - gem install rake
 
