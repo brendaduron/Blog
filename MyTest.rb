@@ -33,7 +33,7 @@ class MyTest < Test::Unit::TestCase
    # last_response.status.must_equal 200
    # assert last_response.body.should include("Congrats")
 
-  end
+ # end
 
 #  def test_consultar
  #   get "/posts/:id", "id" => 2
