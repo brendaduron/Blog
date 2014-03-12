@@ -18,7 +18,7 @@ class MyTest < MiniTest::Unit::TestCase
     get "/"
     assert last_response.ok?
     #last_response.status.must_equal 200
-    assert_equal 'Welcome.', last_response.headers['title']
+    #assert_equal 'Welcome.', last_response.headers['title']
   end
 
   def test_create
