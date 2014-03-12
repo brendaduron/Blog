@@ -11,7 +11,7 @@ gem 'sinatra-redirect-with-flash'
 gem 'rake'
 
 group :development do
-  gem 'sqlite3'
+  gem 'sqlite2'
   gem "tux"
 end
 
