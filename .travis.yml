@@ -8,4 +8,6 @@ before_install:
   - gem install activerecord
   - gem install sinatra-activerecord
   - gem install rake
+  - gem install test-unit
+  - gem install rack-test
 
