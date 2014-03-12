@@ -19,7 +19,7 @@ class MyTest < Test::Unit::TestCase
     get "/"
     assert last_response.ok?
     last_response.status.must_equal 200
-    assert_equal 'Welcome', last_response.title
+    assert_equal 'Welcome.', last_response.title
   end
 
   def test_create
