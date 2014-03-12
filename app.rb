@@ -10,6 +10,7 @@ enable :sessions
 
 set :database, 'sqlite3:///dev.db'
 
+# Class Posts
 class Post < ActiveRecord::Base
   has_many :comments
 
@@ -17,6 +18,7 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
 end
 
+# Class Comments
 class Comments < ActiveRecord::Base
   belongs_to :post
 end
@@ -26,7 +28,7 @@ helpers do
     if @title
       "#{@title}"
     else
-      "Welcome."
+      'Welcome.'
     end
   end
 end
@@ -37,69 +39,69 @@ helpers do
 end
 
 # get ALL posts
-get "/" do
-  @posts = Post.order("created_at DESC")
-  @title = "Welcome."
+get '/' do
+  @posts = Post.order('created_at DESC')
+  @title = 'Welcome.'
   erb :"posts/index"
 end
 
 # create new post
-get "/posts/create" do
-  @title = "Create post"
+get '/posts/create' do
+  @title = 'Create post'
   @post = Post.new
   erb :"posts/create"
 end
-post "/posts" do
+post '/posts' do
   @post = Post.new(params[:post])
   if @post.save
-    redirect "posts/#{@post.id}", :notice => 'Congrats! Love the new post. (This message will disapear in 4 seconds.)'
+    redirect "posts/#{@post.id}", notice: 'Congrats! Love the new post.'
   else
-    redirect "posts/create", :error => 'Something went wrong. Try again. (This message will disapear in 4 seconds.)'
+    redirect 'posts/create', error: 'Something went wrong. Try again. '
   end
 end
 
 # view post
-get "/posts/:id" do
+get '/posts/:id' do
   @post = Post.find(params[:id])
   @title = @post.title
-  @comments = Comments.where("post_id = #{@post.id}")	
+  @comments = Comments.where("post_id = #{@post.id}")
   erb :"posts/view"
 end
 
 # edit post
-get "/posts/:id/edit" do
+get '/posts/:id/edit' do
   @post = Post.find(params[:id])
-  @title = "Edit Form"
+  @title = 'Edit Form'
   erb :"posts/edit"
 end
-put "/posts/:id" do
-  @post = Post.find(params[:id]) 
+put '/posts/:id' do
+  @post = Post.find(params[:id])
   @post.update(params[:post])
   redirect "/posts/#{@post.id}"
 end
 
-#delete posts
-get "/posts/:id/delete" do
+# delete posts
+get '/posts/:id/delete' do
   @post = Post.find(params[:id])
   @post.destroy
-  redirect "/"
+  redirect '/'
 end
 
-#search posts
-get "/search" do
+# search posts
+get '/search' do
   # @posts = Post.find_by_title(params[:query])
   @posts = Post.where("title like '%#{params[:query]}%'")
   erb :"/posts/index"
 end
 
-#new comment
-post "/posts/:id/comment" do
-  @post = Post.find(params[:id]) 
+# new comment
+post '/posts/:id/comment' do
+  @post = Post.find(params[:id])
   @comment = Comments.new(params[:post])
   if @comment.save
-    @comments = Comments.where("post_id = #{@post.id}")	
-    redirect "posts/#{@post.id}", :notice => 'post_id = #{@post.id} Gracias por el comentario. (This message will disapear in 4 seconds.)'
+    @comments = Comments.where("post_id = #{@post.id}")
+    redirect "posts/#{@post.id}", notice: 'Gracias por el comentario.'
   else
-    redirect "posts/#{@post.id}", :error => 'Something went wrong. Try again. (This message will disapear in 4 seconds.)'
+    redirect "posts/#{@post.id}", error: 'Something went wrong. Try again.'
   end
 end
