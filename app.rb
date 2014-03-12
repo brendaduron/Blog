@@ -8,6 +8,7 @@ require 'sinatra/redirect_with_flash'
 
 enable :sessions
 
+set :database, 'sqlite3:///dev.db'
 
 class Post < ActiveRecord::Base
   has_many :comments
