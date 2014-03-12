@@ -1,12 +1,15 @@
 require 'minitest/autorun'
 require 'rack/test'
+require 'simplecov'
+SimpleCov.start
 
-#set :enviroment, :test
+# set :enviroment, :test
 
 begin
   require_relative 'app'
 end
 
+# Clase de pruebas
 class MyTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
 
@@ -15,14 +18,14 @@ class MyTest < MiniTest::Unit::TestCase
   end
 
   def test_root
-    get "/"
+    get '/'
     assert last_response.ok?
-    #last_response.status.must_equal 200
-    #assert_equal 'Welcome.', last_response.headers['title']
+    # last_response.status.must_equal 200
+    # assert_equal 'Welcome.', last_response.headers['title']
   end
 
   def test_create
-    get "/posts/create"
+    get '/posts/create'
     assert last_response.ok?
   end
 
@@ -34,8 +37,8 @@ class MyTest < MiniTest::Unit::TestCase
 
  # end
 
-#  def test_consultar
+ # def test_consultar
  #   get "/posts/:id", "id" => 2
  #   assert last_response.ok?
-  #end
-end 
+ # end
+end
