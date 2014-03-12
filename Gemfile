@@ -12,7 +12,7 @@ gem 'rake'
 gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
 
 group :development do
-  gem 'sqlite2'
+  gem 'sqlite3'
   gem "tux"
 end
 
