@@ -11,6 +11,7 @@ gem 'sinatra-redirect-with-flash'
 gem 'rake'
 gem 'sqlite3', :platform => [:ruby, :mswin, :mingw]
 gem 'rubocop'
+gem 'simplecov'
 
 group :development do
   gem 'sqlite3'
