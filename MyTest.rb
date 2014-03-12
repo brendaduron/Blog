@@ -27,16 +27,16 @@ class MyTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_createSave
-    post "/posts" , {:name => 'Prueba', :body => 'Hola'}
-    assert last_response.ok?
-    last_response.status.must_equal 200
+ # def test_createSave
+  #  post "/posts" , {:name => 'Prueba', :body => 'Hola'}
+   # assert last_response.ok?
+   # last_response.status.must_equal 200
    # assert last_response.body.should include("Congrats")
 
   end
 
-  def test_consultar
-    get "/posts/:id", "id" => 2
-    assert last_response.ok?
-  end
+#  def test_consultar
+ #   get "/posts/:id", "id" => 2
+ #   assert last_response.ok?
+  #end
 end 
