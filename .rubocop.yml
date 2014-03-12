@@ -7,3 +7,4 @@ LineLength:
 AllCops:
   Excludes:
     - 'vendor/**'
+    - 'db/**'
