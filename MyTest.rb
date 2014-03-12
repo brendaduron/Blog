@@ -1,5 +1,4 @@
-
-require 'test/unit'
+require 'minitest/autorun'
 require 'rack/test'
 
 #set :enviroment, :test
@@ -8,7 +7,7 @@ begin
   require_relative 'app'
 end
 
-class MyTest < Test::Unit::TestCase
+class MyTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
 
   def app
@@ -19,7 +18,7 @@ class MyTest < Test::Unit::TestCase
     get "/"
     assert last_response.ok?
     #last_response.status.must_equal 200
-    assert_equal 'Welcome.', last_response.title
+    assert_equal 'Welcome.', last_response.headers['title']
   end
 
   def test_create
