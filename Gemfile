@@ -9,6 +9,7 @@ gem "sinatra-activerecord"
 gem 'sinatra-flash'
 gem 'sinatra-redirect-with-flash'
 gem 'rake'
+gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
 
 group :development do
   gem 'sqlite3'
