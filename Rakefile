@@ -8,5 +8,6 @@ task :default => [:test]
 
 task :test do
 ruby "MyTest.rb"
+ruby "crear_test.rb"
 
 end
