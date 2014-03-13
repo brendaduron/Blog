@@ -16,3 +16,7 @@ before_install:
 script:
   - bundle exec rubocop
   - bundle exec rake
+
+deploy:
+  provider: heroku
+  api_key: "cf320367-3332-4635-9c5f-e3c0db06b2d8"
