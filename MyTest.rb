@@ -33,35 +33,23 @@ class MyTest < MiniTest::Unit::TestCase
     assert last_request
   end
 
-  def test_createsave_nobody
-    post '/posts' , params = { title: 'Prueba' }
-    @post = Post.new(params)
-    assert !@post.save
-  end
-
-  def test_createsave_notitle
-    post '/posts' , params = { body: 'Prueba' }
-    @post = Post.new(params)
-    assert !@post.save
-  end
-
-  def test_consultar
-    @post = Post.new
-    get '/posts/:id', params = { id: @post.id }
-    assert last_response.ok?
+  # def test_consultar
+    # @post = Post.new
+    # get '/posts/:id', params = { id: @post.id }
+    # assert last_response.ok?
     # get '/posts/:id', params = { id: 2 }
     # assert_equal 'http://example.org/posts/:id?id=2', last_request.url
     # assert last_request
     # assert_equal '2', last_request.params['id']
-  end
+  # end
 
-  def test_consultarerror
-    get '/posts/:id', params = { id: 'A' }
-    assert_equal 'http://example.org/posts/:id?id=A', last_request.url
+  # def test_consultarerror
+    # get '/posts/:id', params = { id: 'A' }
+    # assert_equal 'http://example.org/posts/:id?id=A', last_request.url
     # assert last_request
-    get '/posts/:id?id=A'
-    assert_equal 500, last_response.status
-  end
+    # get '/posts/:id?id=A'
+    # assert_equal 500, last_response.status
+  # end
 
   def test_search
     get '/search' , params = { query: 'brenda' }
