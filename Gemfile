@@ -11,6 +11,7 @@ gem 'sinatra-redirect-with-flash'
 gem 'rake'
 gem 'rubocop'
 gem 'simplecov'
+gem 'selenium-webdriver'
 
 group :development do
   gem 'sqlite3'
