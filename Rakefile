@@ -2,6 +2,7 @@
 
 require './app'
 require 'sinatra/activerecord/rake'
+require 'sqlite3'
 
 task :default => [:test]
 
