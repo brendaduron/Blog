@@ -12,6 +12,7 @@ gem 'rake'
 gem 'rubocop'
 gem 'simplecov'
 gem 'selenium-webdriver'
+gem 'test-unit'
 
 group :development do
   gem 'sqlite3'
