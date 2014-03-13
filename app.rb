@@ -8,7 +8,7 @@ require 'sinatra/redirect_with_flash'
 
 enable :sessions
 
-# set :database, 'sqlite:///dev.db'
+set :database, 'sqlite:///dev.db' if development?
 
 # Class Posts
 class Post < ActiveRecord::Base
