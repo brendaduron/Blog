@@ -9,7 +9,6 @@ gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem 'sinatra-redirect-with-flash'
 gem 'rake'
-gem 'sqlite3'
 gem 'rubocop'
 gem 'simplecov'
 
