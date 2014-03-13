@@ -1,10 +1,10 @@
-require "json"
-require "selenium-webdriver"
-gem "test-unit"
-require "test/unit"
+require 'json'
+require 'selenium-webdriver'
+gem 'test-unit'
+require 'test/unit'
 
+# prueba de todooo
 class DeTodo < Test::Unit::TestCase
-
   def setup
     @driver = Selenium::WebDriver.for :firefox
     @base_url = 'http://blogvyv.herokuapp.com'
