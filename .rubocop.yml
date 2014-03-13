@@ -3,7 +3,10 @@ Encoding:
 
 LineLength:
   Max: 150
-  
+
+MethodLength:
+  Max: 200
+
 AllCops:
   Excludes:
     - 'vendor/**'
