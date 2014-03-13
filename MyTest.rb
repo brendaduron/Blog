@@ -46,8 +46,11 @@ class MyTest < MiniTest::Unit::TestCase
   end
 
   def test_consultar
-    get '/posts/:id', params = { id: 2 }
-    assert_equal 'http://example.org/posts/:id?id=2', last_request.url
+    @post = Post.new
+    get '/posts/:id', params = { id: @post.id }
+    assert last_response.ok?
+    # get '/posts/:id', params = { id: 2 }
+    # assert_equal 'http://example.org/posts/:id?id=2', last_request.url
     # assert last_request
     # assert_equal '2', last_request.params['id']
   end
