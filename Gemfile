@@ -13,8 +13,8 @@ gem 'rubocop'
 gem 'simplecov'
 
 group :development do
-#  gem 'sqlite3', '1.3.9'
-#  gem 'tux'
+  gem 'sqlite3', '1.3.9'
+  gem 'tux'
 end
 
 group :production do
