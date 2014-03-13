@@ -12,6 +12,9 @@ before_install:
   - gem install rack-test
   - gem install rubocop
   - gem install simplecov
+  - gem install selenium-webdriver
+ 
+
 
 script:
   - bundle exec rubocop
